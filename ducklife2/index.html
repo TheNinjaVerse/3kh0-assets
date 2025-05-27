@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
 <!-- Overplay Link Script -->
     <script src="https://cdn.op.ninjam.us/game/overplay.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duck Life 2</title>
-    <link rel="icon" type="image/x-icon" href="ducklife2.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="ducklife2.png" />
-  </head>
-  <body>
-    <script src="/js/main.js"></script>
-    <div id="ruffle" width="100%" height="100%"></div>
-    <script src="ruffle.js"></script>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <script>
-      window.RufflePlayer = window.RufflePlayer || {};
-      window.addEventListener("load", (event) => {
-        const ruffle = window.RufflePlayer.newest();
-        const player = ruffle.createPlayer();
-        const container = document.getElementById("ruffle");
-        player.id = "player";
-        player.style.width = "100%";
-        player.style.height = "100%";
-        container.appendChild(player);
-        player.load("dl2.swf");
-      });
+        window.onload = function() { // resize flash game to fit window
+            var game = document.getElementById("game");
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            game.style.width = width + "px";
+            game.style.height = height + "px";
+        }
     </script>
-  </body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<embed>
+    <embed src="./dl2.swf" type="application/x-shockwave-flash" id="game">
+</body>
 </html>
